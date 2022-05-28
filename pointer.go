@@ -8,6 +8,10 @@ type User struct {
 	city string
 }
 
+func changeCityToDepok(user *User) {
+	user.city = "Depok"
+}
+
 func main() {
 	user_1 := User{
 		name: "Tirta",
@@ -21,7 +25,7 @@ func main() {
 
 	// Pass by reference (dengan tanda &) atau mereferensi ke data / memori yang sama
 	var user_3 *User = &user_1
-	user_3.city = "Depok"
+	user_3.city = "Bogor"
 
 	*user_3 = User{
 		name: "arif",
@@ -31,10 +35,17 @@ func main() {
 
 	fmt.Println(user_1)
 	fmt.Println(user_2)
-	fmt.Println(user_3)
+	// fmt.Println(user_3)
 
+	// membuat pointer dengan fungsi new()
 	user_4 := new(User)
 	user_4.name = "hanin"
+	user_4.age = 25
+	user_4.city = "Pekalongan"
 
-	fmt.Println(user_4)
+	fmt.Println(user_1)
+
+	// pointer di function
+	changeCityToDepok(&user_1)
+	fmt.Println(user_1)
 }
